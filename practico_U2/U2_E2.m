@@ -14,7 +14,7 @@ step(FT0);
 
 % Re-alimentación de G1 y Kd
 RealimG1 = feedback(G1,Kd);
-RealimG1 = feedback(G1,Kd,-1); # CONSULTA: Signo en feedback, re-alimentación + o -
+RealimG1 = feedback(G1,Kd); # CONSULTA: Signo en feedback, re-alimentación + o -
 FT1 = Kp*RealimG1*G2;
 step(FT1);
 
