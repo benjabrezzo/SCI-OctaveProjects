@@ -15,7 +15,7 @@ disp(str)
 % 3.1 Trazar una línea horizontal a la altura de yss
 % 3.2 Trazar una línea vertical donde la salida se cruza con la línea de 3.1
 % 3.3 Obtener gráficamente el valor de ts:
-ts = 137;
+  ts = 137;
 
 % 4. Determinar el valor de la constante de tiempo. Siempre vamos a usar 98% 4 tau, salvo que se especifique lo contrario
 Tau = ts/4;

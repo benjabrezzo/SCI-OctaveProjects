@@ -5,7 +5,7 @@ syms s real
 
 # Caminos directos
 P1 = 8*(1/s)*((s+10)/(s+100))*(1/s)*4;
-P2 = 8*10*(1/s);
+P2 = 8*10*(1/s)*410;
 
 # Lazos
 l1 = -1*(1/s);
