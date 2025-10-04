@@ -1,4 +1,3 @@
-% Modelo matemático
 clear all; close all; clc;
 pkg load control;
 pkg load symbolic;
@@ -19,10 +18,11 @@ R = 10;
 L = 0.1;
 K = 10;
 
-disp('')
+
 disp('Función de Transferencia del Sistema con valores:')
 G = eval(G);
 simplify(G)
+
 
 disp('')
 disp('Polos:')
