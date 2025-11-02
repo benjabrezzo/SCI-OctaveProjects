@@ -13,7 +13,7 @@ G = zpk([-30 -45], [-4 -5], 10)
 
 # Buscamos los valores de raíces que son reales (negativas) y más alejadas del eje imaginarios
 # con el lugar de raíces. (Y que sean iguales, pero no es del todo necesario creo)
-rlocus(G)
+rlocus(G);
 
 # Elegimos el punto de diseño
 s1 = -35.8 # donde las raices son iguales
@@ -27,14 +27,31 @@ K2 = 1/abs((10*s2^2 + 750*s2 + 13500)/(s2^2 + 9*s2 + 20))
 T1 = feedback(K1*G, 1);
 T2 = feedback(K2*G, 1);
 
-pole(T1)
-pole(T2)
+#pole(T1)
+#pole(T2)
 
-step(T1)
-# step(T2)
+step(T1,T2);
+
 
 # Esta F.T tiene dos polos y dos ceros. Pero la que conocemos y con la que tratamos
 # estos ejercicios tiene dos polos y ningún cero.
-#
+
+# Estimamos un valor de Ti para estar cerca de los polos dominantes
+Ti = 0.0005 # Valor del cero -1/Ti
+#PI = tf([Ti 1], [Ti 0]);
+PI = tf([Ti 1], [Ti 0])
+
+Gpi = PI*G
+rlocus(Gpi)
+
+
+K3 = 1/abs((10*s1^3 + 790*s1^2 + 16500*s1 + 54000) / (s1^3 + 9*s1^2 + 20*s1))
+
+T3 = feedback(K3*Gpi, 1)
+pole(T3)
+step(T1, T3)
+
+
+
 
 
